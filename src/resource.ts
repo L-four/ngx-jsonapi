@@ -129,6 +129,10 @@ export class Resource implements ICacheable {
         this.id = data_object.data.id || '';
         this.attributes = data_object.data.attributes || this.attributes;
 
+        if (data_object.data.meta) {
+            this.meta = data_object.data.meta;
+        }
+
         this.is_new = false;
         let service = Converter.getService(data_object.data.type);
 
